@@ -2,6 +2,10 @@ import { useState } from "react";
 
 import "./App.css";
 
+const backendIp = import.meta.env.VITE_BACKEND_URL;
+//const backendUrl = `http://${backendIp}:3001/api/resolve-ip`;
+const backendUrl = `http://dev-env:3001/api/resolve-ip`;
+
 function App() {
   const [count, setCount] = useState(0);
   const [url, setUrl] = useState("url");
@@ -21,7 +25,7 @@ function App() {
       setError("Request timed out");
     }, 10000);
     try {
-      const response = await fetch("http://10.0.0.18:3001/api/resolve-ip", {
+      const response = await fetch(backendUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ url: fullurl }),
@@ -46,7 +50,7 @@ function App() {
     <div className="mainbox">
       <h1>Flex IP Finder</h1>
       <div className="searchbox">
-        <label>input flex URL</label>
+        <label>Input Flex URL</label>
         <div className="seachbar">
           <input type="text" onChange={(e) => setUrl(e.target.value)} />
           <p>.myflex.app</p>
