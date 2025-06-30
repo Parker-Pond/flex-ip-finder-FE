@@ -3,8 +3,7 @@ import { useState } from "react";
 import "./App.css";
 
 const backendIp = import.meta.env.VITE_BACKEND_URL;
-//const backendUrl = `http://${backendIp}:3001/api/resolve-ip`;
-const backendUrl = `http://dev-env:3001/api/resolve-ip`;
+const backendUrl = `http://${backendIp}:3001/api/resolve-ip`;
 
 function App() {
   const [count, setCount] = useState(0);
